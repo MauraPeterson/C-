@@ -3,7 +3,7 @@
 static void main(string[] args)
 {
     Bumble myBee = new Bumble();
-    myBee.referenceTypes();
+    myBee.maxValues();
 }
 
 class Bumble
@@ -29,6 +29,7 @@ class Bumble
         decimal f = 5.5M; // this one is precise use with money
         bool g = true;
         string h = "Hello"; // strings are reference types but can be used like literals
+        System.Int32 i = 7; // .NET type for things that use multiple languages with .NET
     }
 
     public void referenceTypes()
@@ -46,5 +47,18 @@ class Bumble
         int b = a;
         a = 3;
         Console.WriteLine($"A={a}, B={b}");
+    }
+
+    public void maxValues()
+    {
+        Console.WriteLine(int.MaxValue);
+        Console.WriteLine(uint.MaxValue);
+        Console.WriteLine(double.MaxValue);
+        Console.WriteLine(decimal.MaxValue);
+        Console.WriteLine(float.MaxValue);
+        Console.WriteLine(long.MaxValue);
+        Console.WriteLine(short.MaxValue);
+        Console.WriteLine(ushort.MaxValue);
+        Console.WriteLine(ulong.MaxValue);
     }
 }
