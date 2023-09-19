@@ -5,11 +5,115 @@ main(args);
 static void main(string[] args)
 {
     Bumble myBee = new Bumble();
-    myBee.clickClack();
+    //myBee.backslash();
+
+    Person person = new Person();
+    person.FirstName = "Cool";
+    person.LastName = "Guy";
+
+    myBee.Triforce();
 }
 
 class Bumble
 {
+
+    public void Triforce()
+    {
+        for(int i = 0; i < 10; i++)
+        {
+            string heart = ((char)3) +" ";
+            triangleDown(i, heart);
+            triangleUp(i, heart);
+            triangleDown(i, heart);
+            triangleUp(i, " ");
+            triangleUp(i, " ");
+            triangleUp(i, " ");
+            triangleUp(i, " ");
+            triangleDown(i, heart);
+            triangleUp(i, heart);
+            triangleDown(i, heart);
+            Console.WriteLine();
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            string heart = ((char)3) + " ";
+            triangleDown(i, heart);
+            triangleUp(i, " ");
+            triangleUp(i, " ");
+            triangleUp(i, " ");
+            triangleUp(i, " ");
+            triangleDown(i, heart);
+            triangleDown(i, heart);
+            triangleUp(i, " ");
+            triangleUp(i, " ");
+            triangleUp(i, " ");
+            triangleUp(i, " ");
+            triangleDown(i, heart);
+            Console.WriteLine();
+        }
+    }
+
+    private void triangleDown(int i, string str)
+    {
+        for (int j = i; j < 10; j++)
+        {
+            Console.Write(str);
+        }
+    }
+
+    private void triangleUp(int i, string str)
+    {
+        for (int j = i; j > 0; j--)
+        {
+            Console.Write(str);
+        }
+    }
+
+    public void doWhile()
+    {
+        int happiness = 10;
+
+        do
+        {
+            Console.WriteLine("bzzzzz");
+            happiness++;
+        }
+        while (happiness < 3);
+    }
+
+    public void WhileLoop()
+    {
+        int i = 0;
+        while(i < 10)
+        {
+            Console.WriteLine("bzz ");
+            i++;
+        }
+    }
+
+    public void Ternary(int num)
+    {
+        string answer = num == 5 ? "heck yes" : "heck no";
+        Console.WriteLine(answer);
+    }
+
+    public void Switch(string name)
+    {
+        switch (name)
+        {
+            case "Cool Guy":
+                Console.WriteLine("Woah your such a Cool Guy");
+                break;
+            case "Bad Guy":
+                Console.WriteLine("Duh");
+                break;
+            default:
+                Console.WriteLine($"Hello {name} bzzz");
+                break;
+        }
+    }
+
     public void echo()
     {
         string? x = Console.ReadLine();
@@ -118,7 +222,7 @@ class Bumble
         string h = "\n";
         string i = "\r";
         string j = "\t";
-        string k = "\v";
+        string k = @"\v";
 
         Console.Write (a);
         Console.Write (b);
