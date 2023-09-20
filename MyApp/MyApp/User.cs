@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 public class User
 {
@@ -35,18 +36,39 @@ public class User
         }
     }
 
-
-    public void printName()
+    public User()
     {
-        Console.WriteLine(FullName);
+        Name = "None";
+        LastName = "None";
     }
 
-    public void printName(int numOfPrints)
+    public override int GetHashCode()
+    {
+        return FullName.GetHashCode();
+    }
+
+    public override bool Equals(object obj)
+    {
+        //if(obj != null) return false;
+        if(obj.GetType() != typeof(User)) return false;
+
+        User user = (User)obj;
+
+		return Enumerable.SequenceEqual(UserName, user.UserName);
+
+    }
+
+    public void printName(int numOfPrints = 1)
     {
         for(int i = 0; i < numOfPrints; i++)
         {
             Console.WriteLine(FirstName + " " + LastName);
         }
     }
+
+    public static void PrintUser(User user)
+    {
+        user.printName();
+	}
 
 }

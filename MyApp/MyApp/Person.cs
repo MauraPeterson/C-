@@ -7,6 +7,13 @@ public class Person
 	{
 		get { return FirstName + " " + LastName; }
 	}
+
+	public Person()
+	{
+		LastName = string.Empty;
+		FirstName = string.Empty;
+	}
+
 	public string GetFullName()
 	{
 		return FirstName + " " + LastName;
