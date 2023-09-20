@@ -1,21 +1,62 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Reflection.Metadata;
+using System.Security.Cryptography.X509Certificates;
 
 main(args);
 
 static void main(string[] args)
 {
-    Bumble myBee = new Bumble();
-    //myBee.backslash();
+    userStuff();
+}
 
+static void userStuff()
+{
+    User myUser = new User();
+    //myUser.FirstName = "Ariel";
+    myUser.LastName = "Mermaid";
+    //myUser.printName(3);
+
+    Console.WriteLine(myUser.UserName);
+    myUser.UserName = "   MyLittleMermaid";
+    Console.WriteLine(myUser.UserName);
+
+    User user2 = new User();
+    user2.LastName = "Human";
+    user2.UserName = "                IGotLEGS";
+
+    List<User> users = new List<User>();
+    users.Add(myUser);
+    users.Add(user2);
+
+    Console.WriteLine("Users:");
+    foreach(User user in users)
+    {
+        user.printName();
+        Console.WriteLine("UserName: " + user.UserName);
+    }
+}
+
+static void personStuff()
+{
     Person person = new Person();
     person.FirstName = "Cool";
     person.LastName = "Guy";
+}
+
+static void bumbleStuff()
+{
+    Bumble myBee = new Bumble();
 
     myBee.nestedLists();
 }
 
 class Bumble
 {
+    public void arrayToList()
+    {
+        string[] array = { "bee", "wasp", "fly" };
+        List<string> list = array.ToList();
+    }
+
     public void listToArray()
     {
         List<string> strings = new List<string>();
