@@ -11,11 +11,245 @@ static void main(string[] args)
     person.FirstName = "Cool";
     person.LastName = "Guy";
 
-    myBee.Triforce();
+    myBee.nestedLists();
 }
 
 class Bumble
 {
+    public void listToArray()
+    {
+        List<string> strings = new List<string>();
+        string[] stringArray = strings.ToArray();
+    }
+
+    public void nestedLists()
+    {
+        List<List<int>> numbersLists = new List<List<int>>() 
+        { 
+            new List<int>{ 3, 4, 5 },
+            new List<int>{ 45, 78, 3, 5, 6 },
+            new List<int>{ 3, 4 } 
+        };
+
+        foreach(List<int> numberList in numbersLists)
+        {
+            foreach(int number in numberList)
+            {
+                Console.Write(number + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+
+    public void forEach()
+    {
+        List<string> bees = new List<string>();
+        bees.Add("buzz");
+        bees.Add("barnibee");
+        bees.Add("Casper");
+
+        foreach(string bee in bees)// for each works with arrays too
+        {
+            bee.ToUpper(); // doesnt change anything, cant do bee = bee.ToUpper() 
+        }
+
+        printList(bees);
+
+        foreach (string bee in bees) // for each is good for reading items, not changing
+        {
+            Console.Write(bee + " ");
+        }
+
+    }
+
+    public void printList(List<string> list)
+    {
+        foreach(string item in list)
+        {
+            Console.Write(item + " ");
+        }
+        Console.Write('\n');
+    }
+
+    public void lists()
+    {
+        List<string> list = new List<string>();
+        list.Add("buzz");
+        list.Add("barnibee");
+        list.Add("Casper");
+
+        var list1 = new List<string>() { "beeble", "bubbles", "bumbalina"};
+
+        Console.WriteLine(list[1]);
+        Console.WriteLine(list1[2]);
+
+        list.Insert(1, "beeble");
+
+        Console.WriteLine(list[1]);
+        Console.WriteLine(list[2]);
+
+        list.Remove("buzz");
+
+        Console.WriteLine(list[0]);
+        Console.WriteLine(list[1]);
+
+        if (list.Contains("beeble"))
+        {
+            Console.WriteLine("yup");
+        }
+
+        Console.WriteLine(list.IndexOf("buzz"));
+
+        List<string> list2 = new List<string> { "beeble", "barnibee", "Casper" };
+
+        if (list.SequenceEqual(list1))
+        {
+            Console.WriteLine("matching 1");
+        }
+
+        if (list.SequenceEqual(list2))
+        {
+            Console.WriteLine("matching 2");
+        }
+
+        printList(list);
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            list[i] = list[i].ToUpper();
+        }
+
+        printList(list);
+    }
+
+    public void jaggedArray()
+    {
+        int[][] beeColonies =
+        {
+            new int[] { 1, 2, 3},
+            new int[] { 5, 3 },
+            new int[] { 5, 3, 5, 4 }
+        };
+
+        for(int i = 0; i < beeColonies.Length; i++)
+        {
+            printArray(beeColonies[i]);  
+            Console.Write("\n");
+        }
+    }
+
+    public void twoDArray()
+    {
+        int[,] beeCouples = { { 3, 4 }, { 5, 8 }, { 9, 6 } };
+
+        for(int i = 0; i < beeCouples.GetLength(0); i++)
+        {
+            for(int j = 0; j < beeCouples.GetLength(1); j++)
+            {
+                Console.Write(beeCouples[i, j] + " ");
+            }
+            Console.Write("\n");
+        }
+    }
+
+    public void compareArray()
+    {
+        int[] bees1 = { 30, 430, 34, 39 };
+        int[] bees2 = { 30, 430, 34, 39 };
+
+        if(Enumerable.SequenceEqual(bees1, bees2))
+        {
+            Console.WriteLine("matching");
+        }
+    }
+
+    public void reverseArray(string[] array)
+    {
+        Array.Reverse(array);
+    }
+
+    public void sortArray()
+    {
+        string[] bees = { "buzz", "casper", "barnibee" };
+
+        Array.Sort(bees);
+
+        reverseArray(bees);
+
+        printArray(bees);
+    }
+
+    public void searchArray()
+    {
+        string[] bees = { "buzz", "casper", "barnibee" };
+
+        Console.WriteLine(Array.IndexOf(bees, "casper"));
+    }
+
+    public void printArray(string[] array)
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            Console.Write(array[i] + " ");
+        }
+    }
+
+    public void printArray(int[] array)
+    {
+        for(int i = 0; i < array.Length; i++)
+        {
+            Console.Write(array[i].ToString() + " ");
+        }
+    }
+
+    public void fillArray()
+    {
+        int[] beeNums = new int[3];
+
+        for(int i = 0; i < beeNums.Length; i++)
+        {
+            beeNums[i] = Convert.ToInt32(Console.ReadLine());
+        }
+
+        printArray(beeNums);
+    }
+
+    public void myArray()
+    {
+        int[] bees = new int[10];
+        bees[0] = 1;
+
+        int[] hives = { 900, 800, 300 };
+
+        Console.WriteLine(bees[0]);
+        Console.WriteLine(hives[2]);
+
+    }
+    
+    public void Continue()
+    {
+        for(int i = 0; i < 10; i++)
+        {
+            if (i == 8)
+            {
+                continue;
+            }
+            Console.WriteLine(i.ToString());
+        }
+    }
+
+    public void Break()
+    {
+        for(int i = 0; i < 10; i++)
+        {
+            if(i == 2)
+            {
+                break;
+            }
+            Console.WriteLine("bzzzz");
+        }
+    }
+
 
     public void Triforce()
     {
