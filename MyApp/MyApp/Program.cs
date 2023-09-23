@@ -5,7 +5,27 @@ main(args);
 
 static void main(string[] args)
 {
-    userStuff();
+    inheritanceStuff();
+}
+
+static void inheritanceStuff()
+{
+    Student me = new Student();
+    me.FirstName = "Test";
+    me.LastName = "Test";
+
+    Teacher you = new Teacher();
+    you.FirstName = "Teach";
+    you.LastName = "Class";
+
+    List<User2> users = new List<User2>() { me, you};
+    
+    foreach(User2 usr in users)
+    {
+        usr.HelloToConsole();
+    }
+
+    
 }
 
 static void userStuff()
@@ -30,7 +50,13 @@ static void userStuff()
     myUser.UserName = user2.UserName;
     Console.WriteLine(user2.Equals(myUser));
     //Console.WriteLine(user2.Equals(null));
+
+    int x = 50;
+    user2.Test(x);
+    Console.WriteLine(x);
 }
+
+
 
 //static void printUser(User user) // changes the user
 //{

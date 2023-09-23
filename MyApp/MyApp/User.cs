@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 public class User
@@ -70,5 +71,34 @@ public class User
     {
         user.printName();
 	}
+
+    public static int Find(List<User> users, string fullName)
+    {
+        for(int i = 0; i < users.Count; i++)
+        {
+            if (users[i].FullName == fullName)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static int Find(List<User> users, User user)
+    {
+        for(int i =0; i < users.Count;i++)
+        {
+            if (users[i].Equals(user))
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void Test(int i)
+    {
+        i++;
+    }
 
 }
