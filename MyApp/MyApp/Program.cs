@@ -10,14 +10,11 @@ static void main(string[] args)
 
 static void inheritanceStuff()
 {
-    Student me = new Student();
-    me.FirstName = "Test";
-    me.LastName = "Test";
+    Student me = new Student("Me", "Super");
 
-    Teacher you = new Teacher();
-    you.FirstName = "Teach";
-    you.LastName = "Class";
+    Teacher you = new Teacher("Teach", "Class");
 
+    //polymorphism
     List<User2> users = new List<User2>() { me, you};
     
     foreach(User2 usr in users)

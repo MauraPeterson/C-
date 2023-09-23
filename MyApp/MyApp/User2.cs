@@ -10,8 +10,14 @@ public abstract class User2
             return FirstName + " " + LastName;
         }
     }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
+    public string FirstName { get; }
+    public string LastName { get; }
+
+    public User2(string firstName, string lastName)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+    }
 
     virtual public void HelloToConsole()
     {
